@@ -6,10 +6,6 @@ on:
 
   workflow_dispatch:
 
-  push:
-    branches:
-    - master
-
 jobs:
   generate:
     permissions:
@@ -29,6 +25,9 @@ jobs:
 
 
       - uses: actions/checkout@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
       - name: Commit & Push
         run: |
           git config user.name github-actions
@@ -36,5 +35,3 @@ jobs:
           git add -A .
           git commit -m "generated"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
