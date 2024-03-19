@@ -23,9 +23,9 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/snake/github-snake.svg
-            dist/snake/github-snake-dark.svg?palette=github-dark
-            dist/snake/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+            snake/github-snake.svg
+            snake/github-snake-dark.svg?palette=github-dark
+            snake/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
       - name: Commit & Push
         run: |
