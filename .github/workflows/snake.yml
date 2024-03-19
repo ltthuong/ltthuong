@@ -28,10 +28,13 @@ jobs:
             dist/snake/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
 
 
-      - name: push snake.svg to the main branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
-        with:
-          target_branch: main
-          build_dir: dist/snake
+      - uses: actions/checkout@v3
+      - name: Commit & Push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add -A .
+          git commit -m "generated"
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
